@@ -1,6 +1,5 @@
 package com.test.card_bin_lookup
 
-import androidx.annotation.Nullable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
