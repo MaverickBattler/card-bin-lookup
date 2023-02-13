@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="result"
+            type="com.test.card_bin_lookup.Result" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:id="@+id/bin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bin_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:text="@{String.valueOf(result.bin)}"
+            android:textColor="@color/dark_green"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@+id/scheme_network"
+            app:layout_constraintStart_toStartOf="@id/bin"
+            app:layout_constraintTop_toBottomOf="@+id/bin"
+            app:layout_constraintVertical_bias="0.2"
+            tools:text="@string/bin_value_sample" />
+
+        <TextView
+            android:id="@+id/bank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/bank"
+            app:layout_constraintStart_toStartOf="@+id/brand"
+            app:layout_constraintTop_toBottomOf="@+id/brand_value" />
+
+        <TextView
+            android:id="@+id/bank_name_and_city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="@{result.bankCity != null ? @string/bank_name_and_city(result.bankName, result.bankName) : result.bankName}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/card_number"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/bank"
+            app:layout_constraintTop_toBottomOf="@+id/bank"
+            tools:text="@string/bank_name_and_city_sample" />
+
+        <TextView
+            android:id="@+id/bank_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{result.bankUrl}"
+            android:textColor="@color/turquoise"
+            android:textSize="16sp"
+            android:visibility="@{result.bankUrl != null ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toStartOf="@+id/card_number"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/bank"
+            app:layout_constraintTop_toBottomOf="@+id/bank_name_and_city"
+            tools:text="@string/bank_url_sample" />
+
+        <TextView
+            android:id="@+id/bank_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="10dp"
+            android:text="@{result.bankPhone}"
+            android:textColor="@color/turquoise"
+            android:textSize="16sp"
+            android:visibility="@{result.bankPhone != null ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toStartOf="@+id/card_number"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/bank"
+            app:layout_constraintTop_toBottomOf="@+id/bank_url"
+            tools:text="@string/bank_phone_sample" />
+
+        <TextView
+            android:id="@+id/scheme_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/scheme"
+            app:layout_constraintStart_toStartOf="@id/bin"
+            app:layout_constraintTop_toBottomOf="@+id/number_length_value" />
+
+        <TextView
+            android:id="@+id/scheme_network_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.scheme}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/scheme_network"
+            app:layout_constraintTop_toBottomOf="@+id/scheme_network"
+            tools:text="@string/scheme_sample" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/type"
+            app:layout_constraintStart_toStartOf="@+id/card_number"
+            app:layout_constraintTop_toTopOf="@+id/scheme_network" />
+
+        <TextView
+            android:id="@+id/type_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.type}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/type"
+            app:layout_constraintTop_toBottomOf="@+id/type"
+            tools:text="@string/type_sample" />
+
+        <TextView
+            android:id="@+id/brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/brand"
+            app:layout_constraintStart_toStartOf="@+id/scheme_network"
+            app:layout_constraintTop_toBottomOf="@+id/scheme_network_value" />
+
+        <TextView
+            android:id="@+id/brand_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.brand}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/brand"
+            app:layout_constraintTop_toBottomOf="@+id/brand"
+            tools:text="@string/brand_sample" />
+
+        <TextView
+            android:id="@+id/prepaid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prepaid"
+            app:layout_constraintStart_toStartOf="@+id/number_luhn"
+            app:layout_constraintTop_toTopOf="@+id/type" />
+
+        <TextView
+            android:id="@+id/prepaid_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.prepaid ? @string/yes : @string/no}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/prepaid"
+            app:layout_constraintTop_toBottomOf="@+id/prepaid"
+            tools:text="@string/prepaid_sample" />
+
+        <TextView
+            android:id="@+id/card_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/card_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toEndOf="@+id/bin"
+            app:layout_constraintTop_toTopOf="@+id/bin" />
+
+        <TextView
+            android:id="@+id/number_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/length"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/card_number"
+            app:layout_constraintTop_toBottomOf="@+id/card_number" />
+
+        <TextView
+            android:id="@+id/number_length_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(result.numberLength)}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/number_length"
+            app:layout_constraintTop_toBottomOf="@+id/number_length"
+            tools:text="@string/number_length_sample" />
+
+        <TextView
+            android:id="@+id/number_luhn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/luhn"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/number_length"
+            app:layout_constraintTop_toBottomOf="@+id/card_number" />
+
+        <TextView
+            android:id="@+id/number_luhn_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.numberLuhn ? @string/yes : @string/no}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/number_luhn"
+            app:layout_constraintTop_toBottomOf="@+id/number_luhn"
+            tools:text="@string/number_luhn_sample" />
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/country"
+            app:layout_constraintStart_toStartOf="@+id/type"
+            app:layout_constraintTop_toTopOf="@+id/brand" />
+
+        <TextView
+            android:id="@+id/country_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.countryEmoji}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/country"
+            app:layout_constraintTop_toBottomOf="@id/country"
+            tools:text="@string/country_emoji_sample" />
+
+        <TextView
+            android:id="@+id/country_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{@string/country_name_and_alpha2(result.countryName, result.countryAlpha2)}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/country_emoji"
+            app:layout_constraintTop_toTopOf="@id/country_emoji"
+            tools:text="@string/country_name_and_alpha2_sample" />
+
+        <TextView
+            android:id="@+id/country_coordinates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@{@string/country_coordinates(result.countryLatitude, result.countryLongitude)}"
+            android:textColor="@color/turquoise"
+            app:layout_constraintStart_toStartOf="@+id/country"
+            app:layout_constraintTop_toBottomOf="@+id/country_name"
+            tools:text="@string/country_coordinates_sample" />
+
+        <TextView
+            android:id="@+id/country_numeric"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/numeric"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/country"
+            app:layout_constraintTop_toBottomOf="@+id/country_coordinates" />
+
+        <TextView
+            android:id="@+id/country_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/currency"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/country_numeric"
+            app:layout_constraintTop_toTopOf="@+id/country_numeric" />
+
+        <TextView
+            android:id="@+id/country_numeric_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.countryNumeric}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/country_numeric"
+            app:layout_constraintTop_toBottomOf="@+id/country_numeric"
+            tools:text="@string/country_numeric_sample" />
+
+        <TextView
+            android:id="@+id/country_currency_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{result.countryCurrency}"
+            android:textColor="@color/dark_green"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/country_currency"
+            app:layout_constraintTop_toBottomOf="@+id/country_currency"
+            tools:text="@string/country_currency_sample" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
