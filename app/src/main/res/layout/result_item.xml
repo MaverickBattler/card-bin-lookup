@@ -9,7 +9,7 @@
 
         <variable
             name="result"
-            type="com.test.card_bin_lookup.Result" />
+            type="com.test.card_bin_lookup.model.Result" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

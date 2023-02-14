@@ -1,6 +1,7 @@
-package com.test.card_bin_lookup
+package com.test.card_bin_lookup.model
 
 import android.util.Log
+import com.test.card_bin_lookup.ResultDto
 import retrofit2.Response
 
 class LookupResultRepository {

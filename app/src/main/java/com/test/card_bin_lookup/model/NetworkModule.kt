@@ -1,4 +1,4 @@
-package com.test.card_bin_lookup
+package com.test.card_bin_lookup.model
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

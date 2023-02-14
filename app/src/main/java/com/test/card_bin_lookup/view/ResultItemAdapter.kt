@@ -1,4 +1,4 @@
-package com.test.card_bin_lookup
+package com.test.card_bin_lookup.view
 
 import android.content.Intent
 import android.net.Uri
@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.test.card_bin_lookup.R
 import com.test.card_bin_lookup.databinding.ResultItemBinding
+import com.test.card_bin_lookup.model.Result
 import java.util.*
 
 

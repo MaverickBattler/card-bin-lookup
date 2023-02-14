@@ -1,4 +1,4 @@
-package com.test.card_bin_lookup
+package com.test.card_bin_lookup.view
 
 import android.os.Bundle
 import android.view.Gravity
@@ -11,7 +11,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.test.card_bin_lookup.*
 import com.test.card_bin_lookup.databinding.FragmentLookupBinding
+import com.test.card_bin_lookup.model.ResultDatabase
+import com.test.card_bin_lookup.viewmodel.LookupViewModel
+import com.test.card_bin_lookup.viewmodel.ResultViewModelFactory
 
 
 class LookupFragment : Fragment() {

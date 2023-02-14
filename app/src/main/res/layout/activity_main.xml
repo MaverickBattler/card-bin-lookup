@@ -4,6 +4,6 @@
     android:id="@+id/fragment_container_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="com.test.card_bin_lookup.LookupFragment"
-    tools:context=".MainActivity">
+    android:name="com.test.card_bin_lookup.view.LookupFragment"
+    tools:context=".view.MainActivity">
 </androidx.fragment.app.FragmentContainerView>

@@ -1,7 +1,8 @@
-package com.test.card_bin_lookup
+package com.test.card_bin_lookup.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.test.card_bin_lookup.model.ResultDao
 
 class ResultViewModelFactory(private val dao: ResultDao) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")

@@ -1,4 +1,4 @@
-package com.test.card_bin_lookup
+package com.test.card_bin_lookup.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

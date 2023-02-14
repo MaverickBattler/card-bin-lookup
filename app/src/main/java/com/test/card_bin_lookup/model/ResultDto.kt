@@ -2,6 +2,7 @@ package com.test.card_bin_lookup
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import com.test.card_bin_lookup.model.Result
 
 @JsonClass(generateAdapter = true)
 data class ResultDto(

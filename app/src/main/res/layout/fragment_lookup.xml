@@ -5,13 +5,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.test.card_bin_lookup.LookupViewModel" />
+            type="com.test.card_bin_lookup.viewmodel.LookupViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".LookupFragment">
+        tools:context=".view.LookupFragment">
 
     <TextView
         android:id="@+id/enter_bin_textview"

@@ -1,9 +1,13 @@
-package com.test.card_bin_lookup
+package com.test.card_bin_lookup.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.test.card_bin_lookup.ResultDto
+import com.test.card_bin_lookup.model.LookupResultRepository
+import com.test.card_bin_lookup.model.ResultDao
+import com.test.card_bin_lookup.toResult
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
