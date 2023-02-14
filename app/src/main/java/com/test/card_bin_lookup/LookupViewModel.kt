@@ -36,4 +36,9 @@ class LookupViewModel(private val dao: ResultDao) : ViewModel() {
             }
         }
     }
+
+    // Проверка, имеет ли введенный BIN нужную длину
+    fun isBinAppropriate(bin: String): Boolean {
+        return bin.length in 6..8
+    }
 }

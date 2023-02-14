@@ -1,6 +1,7 @@
 package com.test.card_bin_lookup
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,7 +71,7 @@ class LookupFragment : Fragment() {
         // По нажатию на кнопку "ПОИСК"
         binding.searchButton.setOnClickListener {
             val binToLookup = binding.binEdittext.text.toString()
-            if (isBinAppropriate(binToLookup)) {
+            if (viewModel.isBinAppropriate(binToLookup)) {
                 // Кнопка пропадает, появляется индикатор загрузки
                 binding.searchProgressbar.visibility = View.VISIBLE
                 binding.searchButton.visibility = View.INVISIBLE
@@ -110,42 +111,49 @@ class LookupFragment : Fragment() {
     }
     // Показать сообщение о неправильном формате BIN
     private fun showInappropriateBinMessage() {
-        Toast.makeText(
+        val toast = Toast.makeText(
             activity, R.string.bin_should_be_between_6_and_8,
             Toast.LENGTH_LONG
-        ).show()
+        )
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.show()
     }
     // Показать сообщение об отсутствии информации о данном BIN
     private fun showNoInformationAboutBinMessage() {
-        Toast.makeText(
+        val toast = Toast.makeText(
             activity, getString(R.string.no_information_about_this_bin),
             Toast.LENGTH_LONG
-        ).show()
+        )
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.show()
     }
     // Показать сообщение о достижении максимального количества запросов в минуту
     private fun showMaxAttemptsAmountReachedMessage() {
-        Toast.makeText(
+        val toast = Toast.makeText(
             activity, getString(R.string.reached_max_amount_of_tries),
             Toast.LENGTH_LONG
-        ).show()
+        )
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.show()
     }
     // Показать сообщение о получении пустого ответа
     private fun showEmptyAnswerReceivedMessage() {
-        Toast.makeText(
-            activity, getString(R.string.empty_answer_received),
+        val toast = Toast.makeText(
+            activity, R.string.empty_answer_received,
             Toast.LENGTH_LONG
-        ).show()
+        )
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.show()
     }
     // Показать сообщение о недостатке информации о данном BIN
+    // или отсутствии подключения к интернету
     private fun showNotEnoughInformationAboutBinMessage() {
-        Toast.makeText(
+        val toast = Toast.makeText(
             activity, getString(R.string.not_enough_information_about_bin),
             Toast.LENGTH_LONG
-        ).show()
-    }
-    // Проверка, является ли введенный BIN нужной длины
-    private fun isBinAppropriate(bin: String): Boolean {
-        return bin.length in 6..8
+        )
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.show()
     }
 
     override fun onDestroyView() {

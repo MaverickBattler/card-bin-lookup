@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Card BIN Lookup</string>
     <string name="bin_hint">45717360</string>
-    <string name="enter_card_bin">Введите BIN банковской карты</string>
+    <string name="enter_card_bin">Введите BIN банковской карты:</string>
     <string name="help_image">Help image</string>
     <string name="find">Поиск</string>
     <string name="scheme">SCHEME / NETWORK</string>
@@ -42,5 +42,5 @@
     <string name="empty_answer_received">Получен пустой ответ</string>
     <string name="no_information_about_this_bin">Не найдена информация о данном BIN</string>
     <string name="reached_max_amount_of_tries">Достигнуто максимальное количество запросов в минуту, пожалуйста, подождите</string>
-    <string name="not_enough_information_about_bin">Недостаточно информации о данном BIN</string>
+    <string name="not_enough_information_about_bin">Недостаточно информации о данном BIN, или у вас отсуствует подключение к интернету</string>
 </resources>
