@@ -104,7 +104,7 @@ class LookupFragment : Fragment() {
                 }
             } else {
                 // Произошла ошибка подключения
-                showNoInternetConnectionValue()
+                showNoInternetConnectionMessage()
             }
         }
         return view
@@ -146,7 +146,7 @@ class LookupFragment : Fragment() {
         toast.show()
     }
     // Показать сообщение об отсутствии подключения к интернету
-    private fun showNoInternetConnectionValue() {
+    private fun showNoInternetConnectionMessage() {
         val toast = Toast.makeText(
             activity, getString(R.string.no_internet_connection),
             Toast.LENGTH_LONG
