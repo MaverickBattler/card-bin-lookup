@@ -35,9 +35,14 @@ class ResultItemAdapter :
 
         fun bind(item: Result) {
             binding.result = item
+            // Сложная логика отображения текста некоторых textView, которую невозможно указать в xml
+            setNumberLuhnValueTextViewText(item.numberLuhn)
+            setPrepaidValueTextViewText(item.prepaid)
+            setBankNameAndCityTextViewText(item.bankName, item.bankCity)
             // Установка слушателей к TextView, нажатие на которых можно обработать
             binding.countryCoordinates.setOnClickListener {
-                processCoordinatesClick(item.countryLatitude, item.countryLongitude)
+                // TextView является GONE, если countryLatitude == null, значит можно использовать !!
+                processCoordinatesClick(item.countryLatitude!!, item.countryLongitude!!)
             }
             binding.bankPhone.setOnClickListener {
                 // TextView является GONE, если bankPhone == null, значит можно использовать !!
@@ -49,11 +54,42 @@ class ResultItemAdapter :
             }
         }
 
+        private fun setNumberLuhnValueTextViewText(numberLuhn: Boolean?) {
+            if (numberLuhn != null) {
+                binding.numberLuhnValue.text =
+                    if (numberLuhn) binding.root.context.getString(R.string.yes)
+                    else binding.root.context.getString(R.string.no)
+            } else {
+                binding.numberLuhnValue.text = binding.root.context.getString(R.string.question_mark)
+            }
+        }
+        private fun setPrepaidValueTextViewText(prepaid: Boolean?) {
+            if (prepaid != null) {
+                binding.prepaidValue.text =
+                    if (prepaid) binding.root.context.getString(R.string.yes)
+                    else binding.root.context.getString(R.string.no)
+            } else {
+                binding.prepaidValue.text = binding.root.context.getString(R.string.question_mark)
+            }
+        }
+        private fun setBankNameAndCityTextViewText(bankName: String?, bankCity: String?) {
+            if (bankName != null && bankCity != null) {
+                binding.bankNameAndCity.text = binding.root.context.getString(
+                    R.string.bank_name_and_city,
+                    bankName,
+                    bankCity
+                )
+            } else if (bankName != null) {
+                binding.bankNameAndCity.text = bankName
+            } else {
+                binding.bankNameAndCity.text = binding.root.context.getString(R.string.question_mark)
+            }
+        }
         // Обработать клик на координаты
-        private fun processCoordinatesClick(latitude: Int, longitude: Int) {
+        private fun processCoordinatesClick(latitude: Double, longitude: Double) {
             try {
                 val uri: String =
-                    String.format(Locale.ENGLISH, "geo:%d,%d", latitude, longitude)
+                    String.format(Locale.ENGLISH, "geo:%f,%f", latitude, longitude)
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
                 binding.root.context.startActivity(intent)
             } catch (exception: Exception) {

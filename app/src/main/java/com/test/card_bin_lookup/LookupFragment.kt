@@ -103,8 +103,8 @@ class LookupFragment : Fragment() {
                     }
                 }
             } else {
-                // Недостаток информации о BIN
-                showNotEnoughInformationAboutBinMessage()
+                // Произошла ошибка подключения
+                showNoInternetConnectionValue()
             }
         }
         return view
@@ -145,11 +145,10 @@ class LookupFragment : Fragment() {
         toast.setGravity(Gravity.CENTER, 0, 0)
         toast.show()
     }
-    // Показать сообщение о недостатке информации о данном BIN
-    // или отсутствии подключения к интернету
-    private fun showNotEnoughInformationAboutBinMessage() {
+    // Показать сообщение об отсутствии подключения к интернету
+    private fun showNoInternetConnectionValue() {
         val toast = Toast.makeText(
-            activity, getString(R.string.not_enough_information_about_bin),
+            activity, getString(R.string.no_internet_connection),
             Toast.LENGTH_LONG
         )
         toast.setGravity(Gravity.CENTER, 0, 0)

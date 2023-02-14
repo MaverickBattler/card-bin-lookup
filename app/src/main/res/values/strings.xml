@@ -36,11 +36,12 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="country_name_and_alpha2">%1$s, %2$s</string>
-    <string name="country_coordinates">(lat: %1$d, long: %2$d)</string>
+    <string name="country_coordinates">(lat: %1$.2f, long: %2$.2f)</string>
     <string name="empty_string"/>
     <string name="bin_should_be_between_6_and_8">BIN должен быть длиной от 6 до 8 символов</string>
     <string name="empty_answer_received">Получен пустой ответ</string>
     <string name="no_information_about_this_bin">Не найдена информация о данном BIN</string>
     <string name="reached_max_amount_of_tries">Достигнуто максимальное количество запросов в минуту, пожалуйста, подождите</string>
-    <string name="not_enough_information_about_bin">Недостаточно информации о данном BIN, или у вас отсуствует подключение к интернету</string>
+    <string name="no_internet_connection">Произошла ошибка. Проверьте подключение к интернету</string>
+    <string name="question_mark">\?</string>
 </resources>

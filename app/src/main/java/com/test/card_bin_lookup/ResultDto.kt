@@ -6,71 +6,71 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class ResultDto(
     @Json(name = "number")
-    val number: Number,
+    val number: Number?,
     @Json(name = "scheme")
-    val scheme: String,
+    val scheme: String?,
     @Json(name = "type")
-    val type: String,
+    val type: String?,
     @Json(name = "brand")
-    val brand: String,
+    val brand: String?,
     @Json(name = "prepaid")
-    val prepaid: Boolean,
+    val prepaid: Boolean?,
     @Json(name = "country")
-    val country: Country,
+    val country: Country?,
     @Json(name = "bank")
-    val bank: Bank
+    val bank: Bank?
 )
 
 fun ResultDto.toResult() = Result(
-    numberLength = number.length,
-    numberLuhn = number.luhn,
-    scheme = scheme.replaceFirstChar{it.uppercase()},
-    type = type.replaceFirstChar{it.uppercase()},
+    numberLength = number?.length,
+    numberLuhn = number?.luhn,
+    scheme = scheme?.replaceFirstChar{it.uppercase()},
+    type = type?.replaceFirstChar{it.uppercase()},
     brand = brand,
     prepaid = prepaid,
-    countryNumeric = country.numeric,
-    countryAlpha2 = country.alpha2,
-    countryName = country.name,
-    countryEmoji = country.emoji,
-    countryCurrency = country.currency,
-    countryLatitude = country.latitude,
-    countryLongitude = country.longitude,
-    bankName = bank.name,
-    bankUrl = bank.url,
-    bankPhone = bank.phone,
-    bankCity = bank.city
+    countryNumeric = country?.numeric,
+    countryAlpha2 = country?.alpha2,
+    countryName = country?.name,
+    countryEmoji = country?.emoji,
+    countryCurrency = country?.currency,
+    countryLatitude = country?.latitude,
+    countryLongitude = country?.longitude,
+    bankName = bank?.name,
+    bankUrl = bank?.url,
+    bankPhone = bank?.phone,
+    bankCity = bank?.city
 )
 
 @JsonClass(generateAdapter = true)
 data class Number(
     @Json(name = "length")
-    val length: Int,
+    val length: Int?,
     @Json(name = "luhn")
-    val luhn: Boolean,
+    val luhn: Boolean?,
 )
 
 @JsonClass(generateAdapter = true)
 data class Country(
     @Json(name = "numeric")
-    val numeric: String,
+    val numeric: String?,
     @Json(name = "alpha2")
-    val alpha2: String,
+    val alpha2: String?,
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "emoji")
-    val emoji: String,
+    val emoji: String?,
     @Json(name = "currency")
-    val currency: String,
+    val currency: String?,
     @Json(name = "latitude")
-    val latitude: Int,
+    val latitude: Double?,
     @Json(name = "longitude")
-    val longitude: Int,
+    val longitude: Double?
 )
 
 @JsonClass(generateAdapter = true)
 data class Bank(
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "url")
     val url: String?,
     @Json(name = "phone")
