@@ -47,10 +47,9 @@ class LookupFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         // Создание адаптера
         val adapter = ResultItemAdapter()
-        // Регитрация AdapterDataObserver для автоматической прокрутки списка в начало
+        // Регистрация AdapterDataObserver для автоматической прокрутки списка в начало
         adapter.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
             override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-                println(positionStart)
                 (binding.historyRecyclerview.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(
                     0,
                     0
